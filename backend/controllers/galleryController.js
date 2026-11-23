@@ -29,10 +29,12 @@ const createGalleryImages = async (req, res) => {
         // Support multiple image files in a single submission
         const newImages = [];
         for (const file of uploadedFiles) {
+            // file.path contains the full secure Cloudinary URL (e.g. https://res.cloudinary.com/...)
+            const imageUrl = file.path || (file.filename ? `/uploads/${file.filename}` : '');
             const item = new Gallery({
                 title: title || file.originalname,
                 section: section || 'gallery',
-                imageUrl: `/uploads/${file.filename}`
+                imageUrl: imageUrl
             });
             const saved = await item.save();
             newImages.push(saved);

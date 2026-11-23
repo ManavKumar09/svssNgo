@@ -47,7 +47,7 @@ const createHeroSlide = async (req, res) => {
 
         let imageUrl = req.body.imageUrl || '';
         if (req.file) {
-            imageUrl = `/uploads/${req.file.filename}`;
+            imageUrl = req.file.path || `/uploads/${req.file.filename}`;
         }
 
         if (!imageUrl) {
@@ -108,7 +108,7 @@ const updateHeroSlide = async (req, res) => {
         if (isActive !== undefined) slide.isActive = (isActive === 'true' || isActive === true);
 
         if (req.file) {
-            slide.imageUrl = `/uploads/${req.file.filename}`;
+            slide.imageUrl = req.file.path || `/uploads/${req.file.filename}`;
         } else if (directImageUrl) {
             slide.imageUrl = directImageUrl;
         }

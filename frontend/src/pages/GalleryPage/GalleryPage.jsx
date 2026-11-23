@@ -13,7 +13,7 @@ const GalleryPage = () => {
                 const res = await fetch('https://svssngo.onrender.com/api/gallery');
                 const data = await res.json();
                 if (Array.isArray(data)) {
-                    setDynamicImages(data.map(item => `https://svssngo.onrender.com${item.imageUrl}`));
+                    setDynamicImages(data.map(item => item.imageUrl.startsWith('http') ? item.imageUrl : `https://svssngo.onrender.com${item.imageUrl}`));
                 }
             } catch (err) {
                 console.error('Failed to load dynamic gallery images', err);

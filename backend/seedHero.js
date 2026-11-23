@@ -6,25 +6,14 @@ const HeroSlide = require('./models/HeroSlide');
 
 dotenv.config();
 
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-}
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 't6h2lvhg',
+    api_key: process.env.CLOUDINARY_API_KEY || '991397586125354',
+    api_secret: process.env.CLOUDINARY_API_SECRET || 'fZ9KP8eflfB5GHSN5IW-SLGvqto'
+});
 
-// Frontend source photos directory
 const frontendPhotosDir = path.join(__dirname, '..', 'frontend', 'src', 'assets', 'photos');
-
-const copyPhotoSafe = (srcName, destName) => {
-    const srcPath = path.join(frontendPhotosDir, srcName);
-    const destPath = path.join(uploadsDir, destName);
-    if (fs.existsSync(srcPath)) {
-        fs.copyFileSync(srcPath, destPath);
-        console.log(`Copied ${srcName} -> ${destName}`);
-        return `/uploads/${destName}`;
-    }
-    console.warn(`Source photo not found: ${srcPath}`);
-    return `/uploads/${destName}`;
-};
 
 const defaultSlides = [
     {
@@ -36,7 +25,6 @@ const defaultSlides = [
         secondaryBtnText: 'Involve with us',
         secondaryBtnLink: '/volunteer',
         srcFile: 'home3.JPG',
-        destFile: 'hero-slide-1.jpg',
         order: 1,
         isActive: true
     },
@@ -49,7 +37,6 @@ const defaultSlides = [
         secondaryBtnText: 'Volunteer With Us',
         secondaryBtnLink: '/volunteer',
         srcFile: 'home2.JPG',
-        destFile: 'hero-slide-2.jpg',
         order: 2,
         isActive: true
     },
@@ -62,7 +49,6 @@ const defaultSlides = [
         secondaryBtnText: 'Our Partners',
         secondaryBtnLink: '/completed-projects',
         srcFile: 'Home1.JPG',
-        destFile: 'hero-slide-3.jpg',
         order: 3,
         isActive: true
     },
@@ -75,7 +61,6 @@ const defaultSlides = [
         secondaryBtnText: 'Get In Touch',
         secondaryBtnLink: '/contact',
         srcFile: 'home4.jpeg',
-        destFile: 'hero-slide-4.jpeg',
         order: 4,
         isActive: true
     }
@@ -87,12 +72,24 @@ const seedHero = async () => {
         await mongoose.connect(mongoURI);
         console.log('MongoDB Connected for Hero Slides seeding...');
 
-        // Clear existing hero slides to avoid duplication
         await HeroSlide.deleteMany({});
+        console.log('Cleared existing hero slides.');
 
-        const docsToInsert = defaultSlides.map(slide => {
-            const imageUrl = copyPhotoSafe(slide.srcFile, slide.destFile);
-            return {
+        const docsToInsert = [];
+        for (const slide of defaultSlides) {
+            const srcPath = path.join(frontendPhotosDir, slide.srcFile);
+            if (!fs.existsSync(srcPath)) {
+                console.warn(`Source not found: ${srcPath} — skipping`);
+                continue;
+            }
+            console.log(`Uploading ${slide.srcFile} to Cloudinary...`);
+            const result = await cloudinary.uploader.upload(srcPath, {
+                folder: 'svss_ngo/images',
+                use_filename: true,
+                unique_filename: true
+            });
+            console.log(`✓ ${slide.srcFile} → ${result.secure_url}`);
+            docsToInsert.push({
                 titleLine1: slide.titleLine1,
                 titleLine2: slide.titleLine2,
                 subtitle: slide.subtitle,
@@ -100,11 +97,11 @@ const seedHero = async () => {
                 primaryBtnLink: slide.primaryBtnLink,
                 secondaryBtnText: slide.secondaryBtnText,
                 secondaryBtnLink: slide.secondaryBtnLink,
-                imageUrl,
+                imageUrl: result.secure_url,
                 order: slide.order,
                 isActive: slide.isActive
-            };
-        });
+            });
+        }
 
         await HeroSlide.insertMany(docsToInsert);
         console.log(`Successfully seeded ${docsToInsert.length} Hero Slides into MongoDB.`);

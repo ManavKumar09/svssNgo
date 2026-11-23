@@ -2,78 +2,75 @@ const mongoose = require('mongoose');
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
+
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 't6h2lvhg',
+    api_key: process.env.CLOUDINARY_API_KEY || '991397586125354',
+    api_secret: process.env.CLOUDINARY_API_SECRET || 'fZ9KP8eflfB5GHSN5IW-SLGvqto'
+});
+
 const Policy = require('./models/Policy');
 
-const documentsToMigrate = [
+const documentsToSeed = [
     // Annual Reports
     {
         title: 'Annual Report 2024-25',
         category: 'annual',
-        sourcePath: '../frontend/public/Reports/Annual -Report-2024-25.pdf',
-        targetName: 'Annual-Report-2024-25.pdf'
+        sourcePath: '../frontend/public/Reports/Annual -Report-2024-25.pdf'
     },
     {
         title: 'Annual Report 2023-24',
         category: 'annual',
-        sourcePath: '../frontend/public/Reports/Annual-Report-23-24.pdf',
-        targetName: 'Annual-Report-23-24.pdf'
+        sourcePath: '../frontend/public/Reports/Annual-Report-23-24.pdf'
     },
     {
         title: 'Annual Report 2022-23',
         category: 'annual',
-        sourcePath: '../frontend/public/Reports/Annual-Report-2022-23.pdf',
-        targetName: 'Annual-Report-2022-23.pdf'
+        sourcePath: '../frontend/public/Reports/Annual-Report-2022-23.pdf'
     },
     // Audit Reports
     {
         title: 'Audit Report 2024-25',
         category: 'audit',
-        sourcePath: '../frontend/public/Reports/Audit-report-2024-25.pdf',
-        targetName: 'Audit-report-2024-25.pdf'
+        sourcePath: '../frontend/public/Reports/Audit-report-2024-25.pdf'
     },
     {
         title: 'Audit Report 2023-24',
         category: 'audit',
-        sourcePath: '../frontend/public/Reports/Audit-report-2023-24.pdf',
-        targetName: 'Audit-report-2023-24.pdf'
+        sourcePath: '../frontend/public/Reports/Audit-report-2023-24.pdf'
     },
     // Policies
     {
         title: 'Donor Management Policy',
         category: 'policy',
-        sourcePath: '../frontend/public/Policies/Donor-Management-Policy.pdf',
-        targetName: 'Donor-Management-Policy.pdf'
+        sourcePath: '../frontend/public/Policies/Donor-Management-Policy.pdf'
     },
     {
         title: 'Inventory Purchase & Sales Policy',
         category: 'policy',
-        sourcePath: '../frontend/public/Policies/Institutional-and-Project-Level-Inventory-Purchase-&-Sales-Policy.pdf',
-        targetName: 'Institutional-and-Project-Level-Inventory-Purchase-and-Sales-Policy.pdf'
+        sourcePath: '../frontend/public/Policies/Institutional-and-Project-Level-Inventory-Purchase-&-Sales-Policy.pdf'
     },
     {
         title: 'Project Operational Policies',
         category: 'policy',
-        sourcePath: '../frontend/public/Policies/Project-Operational-Policies.pdf',
-        targetName: 'Project-Operational-Policies.pdf'
+        sourcePath: '../frontend/public/Policies/Project-Operational-Policies.pdf'
     },
     {
         title: 'Statutory Compliance & Reporting',
         category: 'policy',
-        sourcePath: '../frontend/public/Policies/Statutory-Compliance-and-Stakeholder-Management-&-Reporting Policy.pdf',
-        targetName: 'Statutory-Compliance-and-Stakeholder-Management-and-Reporting-Policy.pdf'
+        sourcePath: '../frontend/public/Policies/Statutory-Compliance-and-Stakeholder-Management-&-Reporting Policy.pdf'
     },
     {
         title: 'Travel Policy',
         category: 'policy',
-        sourcePath: '../frontend/public/Policies/SVSS-Travel-Policy.pdf',
-        targetName: 'SVSS-Travel-Policy.pdf'
+        sourcePath: '../frontend/public/Policies/SVSS-Travel-Policy.pdf'
     },
     // Organization Documents
     {
         title: 'SVSS New Profile 2025',
         category: 'organization',
-        sourcePath: '../frontend/public/organization-document/SVSS-New-Profile-2025-1.docx',
-        targetName: 'SVSS-New-Profile-2025-1.docx'
+        sourcePath: '../frontend/public/organization-document/SVSS-New-Profile-2025-1.docx'
     }
 ];
 
@@ -81,39 +78,41 @@ const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB Connected Successfully');
-        
-        // Ensure uploads directory exists
-        const uploadsDir = path.join(__dirname, 'uploads');
-        if (!fs.existsSync(uploadsDir)){
-            fs.mkdirSync(uploadsDir);
-        }
 
-        for (const doc of documentsToMigrate) {
+        for (const doc of documentsToSeed) {
             const source = path.join(__dirname, doc.sourcePath);
-            const target = path.join(uploadsDir, doc.targetName);
-            
-            if (fs.existsSync(source)) {
-                fs.copyFileSync(source, target);
-                console.log(`Copied ${doc.targetName}`);
-                
-                // Create document entry if it doesn't already exist
-                const exists = await Policy.findOne({ title: doc.title });
-                if (!exists) {
-                    await Policy.create({
-                        title: doc.title,
-                        category: doc.category,
-                        content: '',
-                        document: `/uploads/${doc.targetName}`
-                    });
-                    console.log(`Created DB entry for ${doc.title}`);
-                }
+            if (!fs.existsSync(source)) {
+                console.warn(`Source not found: ${source} — skipping`);
+                continue;
+            }
+            const exists = await Policy.findOne({ title: doc.title });
+            if (exists && exists.document && exists.document.startsWith('http')) {
+                console.log(`SKIP (already Cloudinary): ${doc.title}`);
+                continue;
+            }
+            console.log(`Uploading ${path.basename(source)} to Cloudinary...`);
+            const result = await cloudinary.uploader.upload(source, {
+                resource_type: 'raw',
+                folder: 'svss_ngo/documents',
+                use_filename: true,
+                unique_filename: true
+            });
+            console.log(`✓ ${path.basename(source)} → ${result.secure_url}`);
+            if (exists) {
+                exists.document = result.secure_url;
+                await exists.save();
             } else {
-                console.log(`Source not found: ${source}`);
+                await Policy.create({
+                    title: doc.title,
+                    category: doc.category,
+                    content: '',
+                    document: result.secure_url
+                });
             }
         }
-        
-        console.log('Migration completed!');
-        process.exit();
+
+        console.log('Document seeding completed!');
+        process.exit(0);
     } catch (err) {
         console.error('Error:', err);
         process.exit(1);
