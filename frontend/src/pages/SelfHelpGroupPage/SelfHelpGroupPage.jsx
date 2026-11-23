@@ -4,9 +4,9 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import './SelfHelpGroupPage.css';
 
-import shgImage1 from '../../assets/photos/selfhelpgroup/SelfHelpGroup1.png';
-import shgImage2 from '../../assets/photos/selfhelpgroup/SelfHelpGroup2.png';
-import shgImage3 from '../../assets/photos/selfhelpgroup/SelfHelpGroup3.png';
+import shgImage1 from '../../assets/photos/SelfHelpGroup/SelfHelpGroup1.png';
+import shgImage2 from '../../assets/photos/SelfHelpGroup/SelfHelpGroup2.png';
+import shgImage3 from '../../assets/photos/SelfHelpGroup/SelfHelpGroup3.png';
 
 const SelfHelpGroupPage = () => {
     return (

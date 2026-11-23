@@ -5,9 +5,9 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import './ClimateChangePage.css';
 
-import climateImg1 from '../../assets/photos/climatechange/enhanced_climate_1.png';
-import climateImg2 from '../../assets/photos/climatechange/enhanced_climate_2.png';
-import climateImg3 from '../../assets/photos/climatechange/enhanced_climate_3.png';
+import climateImg1 from '../../assets/photos/ClimateChange/enhanced_climate_1.png';
+import climateImg2 from '../../assets/photos/ClimateChange/enhanced_climate_2.png';
+import climateImg3 from '../../assets/photos/ClimateChange/enhanced_climate_3.png';
 
 const ClimateChangePage = () => {
     return (

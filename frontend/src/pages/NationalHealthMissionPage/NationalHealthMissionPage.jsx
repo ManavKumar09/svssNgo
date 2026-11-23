@@ -5,10 +5,10 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import './NationalHealthMissionPage.css';
 
-import nhmImg1 from '../../assets/photos/nationalhealth/NationalHealth1.png';
-import nhmImg2 from '../../assets/photos/nationalhealth/NationalHealth2.png';
-import nhmImg3 from '../../assets/photos/nationalhealth/NationalHealth3.png';
-import nhmImg4 from '../../assets/photos/nationalhealth/NationalHealth4.png';
+import nhmImg1 from '../../assets/photos/NationalHealth/NationalHealth1.png';
+import nhmImg2 from '../../assets/photos/NationalHealth/NationalHealth2.png';
+import nhmImg3 from '../../assets/photos/NationalHealth/NationalHealth3.png';
+import nhmImg4 from '../../assets/photos/NationalHealth/NationalHealth4.png';
 
 const NationalHealthMissionPage = () => {
     return (

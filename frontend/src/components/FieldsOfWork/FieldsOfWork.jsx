@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import FadeIn from '../FadeIn/FadeIn';
 import './FieldsOfWork.css';
 import agriLivelihoodImg from '../../assets/photos/IntegratedFarming/IntegratedFarming1.png';
-import healthSanitationImg from '../../assets/photos/nationalhealth/NationalHealth1.png';
-import envClimateImg from '../../assets/photos/climatechange/ClimateChange3.png';
+import healthSanitationImg from '../../assets/photos/NationalHealth/NationalHealth1.png';
+import envClimateImg from '../../assets/photos/ClimateChange/ClimateChange3.png';
 import communityCategoryImg from '../../assets/photos/childline/childline2.png';
 import defaultCategoryImg from '../../assets/photos/aboutusgallery.JPG';
 
