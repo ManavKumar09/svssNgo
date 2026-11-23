@@ -9,14 +9,13 @@ const {
     deleteInquiry
 } = require('../controllers/formController');
 
-// Use Cloudinary for resume/CV uploads (volunteer form)
-const allowedMimes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-
+// uploadDoc is a multer instance configured for Cloudinary (raw/documents).
+// uploadDoc.single('attachment') returns the middleware — store it then use directly.
 const upload = uploadDoc.single('attachment');
 
 // Public form submissions
 router.post('/contact', submitContactForm);
-router.post('/volunteer', upload.single('attachment'), submitVolunteerForm);
+router.post('/volunteer', upload, submitVolunteerForm);   // <-- use upload directly, not upload.single()
 
 // Protected Admin Inquiries Management
 router.get('/inquiries', protect, getInquiries);
