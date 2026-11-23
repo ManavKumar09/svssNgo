@@ -57,7 +57,7 @@ const ProjectsManager = ({ token }) => {
     const fetchProjects = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/projects');
+            const res = await fetch('https://svssngo.onrender.com/api/projects');
             const data = await res.json();
             if (Array.isArray(data)) {
                 setProjects(data);
@@ -102,7 +102,7 @@ const ProjectsManager = ({ token }) => {
             if (projectToEdit) {
                 populateForm(projectToEdit);
             } else {
-                fetch(`http://localhost:5000/api/projects/${editId}`)
+                fetch(`https://svssngo.onrender.com/api/projects/${editId}`)
                     .then(res => res.json())
                     .then(data => {
                         if (data && data.title) {
@@ -152,7 +152,7 @@ const ProjectsManager = ({ token }) => {
 
         setCurrentHeaderImage(data.headerImage || '');
         if (data.headerImage) {
-            setHeaderImagePreview(data.headerImage.startsWith('http') ? data.headerImage : `http://localhost:5000${data.headerImage}`);
+            setHeaderImagePreview(data.headerImage.startsWith('http') ? data.headerImage : `https://svssngo.onrender.com${data.headerImage}`);
         } else {
             setHeaderImagePreview('');
         }
@@ -220,8 +220,8 @@ const ProjectsManager = ({ token }) => {
 
         try {
             const url = editId 
-                ? `http://localhost:5000/api/projects/${editId}`
-                : 'http://localhost:5000/api/projects';
+                ? `https://svssngo.onrender.com/api/projects/${editId}`
+                : 'https://svssngo.onrender.com/api/projects';
             
             const method = editId ? 'PUT' : 'POST';
 
@@ -253,7 +253,7 @@ const ProjectsManager = ({ token }) => {
         if (!window.confirm(`Are you sure you want to delete "${title || 'this project'}"?`)) return;
         
         try {
-            const res = await fetch(`http://localhost:5000/api/projects/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/projects/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -452,7 +452,7 @@ const ProjectsManager = ({ token }) => {
                                         {currentImages.map((imgSrc, idx) => (
                                             <div key={idx} style={{ position: 'relative', display: 'inline-block' }}>
                                                 <img 
-                                                    src={imgSrc.startsWith('http') ? imgSrc : `http://localhost:5000${imgSrc}`} 
+                                                    src={imgSrc.startsWith('http') ? imgSrc : `https://svssngo.onrender.com${imgSrc}`} 
                                                     alt={`Gallery ${idx + 1}`} 
                                                     style={{ width: '90px', height: '70px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #cbd5e1' }} 
                                                 />

@@ -27,7 +27,7 @@ const VoicesManager = ({ token }) => {
     const fetchVoices = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/voices');
+            const res = await fetch('https://svssngo.onrender.com/api/voices');
             const data = await res.json();
             if (Array.isArray(data)) {
                 setVoices(data);
@@ -55,7 +55,7 @@ const VoicesManager = ({ token }) => {
                     order: voiceToEdit.order !== undefined ? voiceToEdit.order : 0
                 });
             } else {
-                fetch(`http://localhost:5000/api/voices/${editId}`)
+                fetch(`https://svssngo.onrender.com/api/voices/${editId}`)
                     .then(res => res.json())
                     .then(data => {
                         if (data && data.quote) {
@@ -92,8 +92,8 @@ const VoicesManager = ({ token }) => {
 
         try {
             const url = editId
-                ? `http://localhost:5000/api/voices/${editId}`
-                : 'http://localhost:5000/api/voices';
+                ? `https://svssngo.onrender.com/api/voices/${editId}`
+                : 'https://svssngo.onrender.com/api/voices';
             const method = editId ? 'PUT' : 'POST';
 
             const res = await fetch(url, {
@@ -126,7 +126,7 @@ const VoicesManager = ({ token }) => {
         if (!window.confirm(`Are you sure you want to delete the quote from "${author}"?`)) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/voices/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/voices/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`

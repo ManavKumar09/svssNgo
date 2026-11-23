@@ -32,7 +32,7 @@ const StatsManager = ({ token }) => {
     const fetchStats = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/stats');
+            const res = await fetch('https://svssngo.onrender.com/api/stats');
             const data = await res.json();
             if (Array.isArray(data)) {
                 setStats(data);
@@ -60,7 +60,7 @@ const StatsManager = ({ token }) => {
                     order: statToEdit.order !== undefined ? statToEdit.order : 0
                 });
             } else {
-                fetch(`http://localhost:5000/api/stats/${editId}`)
+                fetch(`https://svssngo.onrender.com/api/stats/${editId}`)
                     .then(res => res.json())
                     .then(data => {
                         if (data && data.label) {
@@ -97,8 +97,8 @@ const StatsManager = ({ token }) => {
 
         try {
             const url = editId 
-                ? `http://localhost:5000/api/stats/${editId}` 
-                : 'http://localhost:5000/api/stats';
+                ? `https://svssngo.onrender.com/api/stats/${editId}` 
+                : 'https://svssngo.onrender.com/api/stats';
             const method = editId ? 'PUT' : 'POST';
 
             const res = await fetch(url, {
@@ -131,7 +131,7 @@ const StatsManager = ({ token }) => {
         if (!window.confirm(`Are you sure you want to delete the stat: "${label}"?`)) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/stats/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/stats/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`

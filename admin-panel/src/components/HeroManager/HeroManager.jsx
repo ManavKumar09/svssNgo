@@ -35,7 +35,7 @@ const HeroManager = ({ token }) => {
     const fetchSlides = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/hero/all', {
+            const res = await fetch('https://svssngo.onrender.com/api/hero/all', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -72,7 +72,7 @@ const HeroManager = ({ token }) => {
                     isActive: slideToEdit.isActive !== undefined ? slideToEdit.isActive : true
                 });
                 setCurrentImage(slideToEdit.imageUrl || '');
-                setImagePreview(slideToEdit.imageUrl ? (slideToEdit.imageUrl.startsWith('http') ? slideToEdit.imageUrl : `http://localhost:5000${slideToEdit.imageUrl}`) : '');
+                setImagePreview(slideToEdit.imageUrl ? (slideToEdit.imageUrl.startsWith('http') ? slideToEdit.imageUrl : `https://svssngo.onrender.com${slideToEdit.imageUrl}`) : '');
             } else if (slides.length > 0) {
                 // Not found in existing list
                 navigate('/admin/hero');
@@ -133,8 +133,8 @@ const HeroManager = ({ token }) => {
 
         try {
             const url = editId
-                ? `http://localhost:5000/api/hero/${editId}`
-                : 'http://localhost:5000/api/hero';
+                ? `https://svssngo.onrender.com/api/hero/${editId}`
+                : 'https://svssngo.onrender.com/api/hero';
 
             const method = editId ? 'PUT' : 'POST';
 
@@ -167,7 +167,7 @@ const HeroManager = ({ token }) => {
         if (!window.confirm(`Are you sure you want to delete this slide "${title}"?`)) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/hero/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/hero/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -187,7 +187,7 @@ const HeroManager = ({ token }) => {
     // Toggle active status directly from table
     const handleToggleActive = async (slide) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/hero/${slide._id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/hero/${slide._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -454,7 +454,7 @@ const HeroManager = ({ token }) => {
                                     <td>
                                         <div className="hero-thumb-cell">
                                             <img
-                                                src={slide.imageUrl.startsWith('http') ? slide.imageUrl : `http://localhost:5000${slide.imageUrl}`}
+                                                src={slide.imageUrl.startsWith('http') ? slide.imageUrl : `https://svssngo.onrender.com${slide.imageUrl}`}
                                                 alt={slide.titleLine1 || 'Slide thumbnail'}
                                                 onError={(e) => { e.target.style.display = 'none'; }}
                                             />

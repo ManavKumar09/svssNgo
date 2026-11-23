@@ -12,7 +12,7 @@ const VolunteerPage = () => {
         const formData = new FormData(event.target);
 
         try {
-            const response = await fetch("http://localhost:5000/api/forms/volunteer", {
+            const response = await fetch("https://svssngo.onrender.com/api/forms/volunteer", {
                 method: "POST",
                 body: formData
             });

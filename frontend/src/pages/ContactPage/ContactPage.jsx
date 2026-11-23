@@ -18,7 +18,7 @@ const ContactPage = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/settings');
+                const res = await fetch('https://svssngo.onrender.com/api/settings');
                 if (res.ok) {
                     const data = await res.json();
                     if (data && data.key) {
@@ -52,7 +52,7 @@ const ContactPage = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/forms/contact", {
+            const response = await fetch("https://svssngo.onrender.com/api/forms/contact", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

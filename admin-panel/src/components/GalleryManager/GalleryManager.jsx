@@ -15,7 +15,7 @@ const GalleryManager = ({ token }) => {
 
     const fetchGalleryImages = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/gallery');
+            const res = await fetch('https://svssngo.onrender.com/api/gallery');
             const data = await res.json();
             if (Array.isArray(data)) {
                 // Filter only gallery photos (exclude legacy home/partners items if any)
@@ -56,7 +56,7 @@ const GalleryManager = ({ token }) => {
         });
 
         try {
-            const res = await fetch('http://localhost:5000/api/gallery', {
+            const res = await fetch('https://svssngo.onrender.com/api/gallery', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -87,7 +87,7 @@ const GalleryManager = ({ token }) => {
         if (!window.confirm('Are you sure you want to delete this photo from the gallery?')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/gallery/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/gallery/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -211,7 +211,7 @@ const GalleryManager = ({ token }) => {
                                     <td>
                                         <div className="gallery-thumb-cell">
                                             <img
-                                                src={`http://localhost:5000${item.imageUrl}`}
+                                                src={`https://svssngo.onrender.com${item.imageUrl}`}
                                                 alt={item.title || 'Image thumbnail'}
                                                 onError={(e) => { e.target.style.display = 'none'; }}
                                             />

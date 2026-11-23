@@ -36,7 +36,7 @@ const SettingsManager = ({ token }) => {
     const fetchSettings = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/settings');
+            const res = await fetch('https://svssngo.onrender.com/api/settings');
             const data = await res.json();
             if (data && data.key) {
                 setSettings({
@@ -56,7 +56,7 @@ const SettingsManager = ({ token }) => {
 
             // Also fetch current admin user profile
             if (token) {
-                const userRes = await fetch('http://localhost:5000/api/auth/me', {
+                const userRes = await fetch('https://svssngo.onrender.com/api/auth/me', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (userRes.ok) {
@@ -83,7 +83,7 @@ const SettingsManager = ({ token }) => {
         setStatusMsg({ text: 'Saving settings...', type: 'info' });
 
         try {
-            const res = await fetch('http://localhost:5000/api/settings', {
+            const res = await fetch('https://svssngo.onrender.com/api/settings', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const SettingsManager = ({ token }) => {
         setStatusMsg({ text: 'Updating username...', type: 'info' });
 
         try {
-            const res = await fetch('http://localhost:5000/api/auth/change-username', {
+            const res = await fetch('https://svssngo.onrender.com/api/auth/change-username', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const SettingsManager = ({ token }) => {
         setStatusMsg({ text: 'Updating password...', type: 'info' });
 
         try {
-            const res = await fetch('http://localhost:5000/api/auth/change-password', {
+            const res = await fetch('https://svssngo.onrender.com/api/auth/change-password', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -80,7 +80,7 @@ const FieldsOfWork = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/projects');
+                const res = await fetch('https://svssngo.onrender.com/api/projects');
                 if (res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data)) {
@@ -98,7 +98,7 @@ const FieldsOfWork = () => {
                                     title: formatCategoryTitle(themeKey),
                                     link: `/completed-projects/${themeKey}`,
                                     image: p.headerImage 
-                                        ? (p.headerImage.startsWith('http') ? p.headerImage : `http://localhost:5000${p.headerImage}`)
+                                        ? (p.headerImage.startsWith('http') ? p.headerImage : `https://svssngo.onrender.com${p.headerImage}`)
                                         : (fallbackInfo?.image || defaultCategoryImg)
                                 };
                             }

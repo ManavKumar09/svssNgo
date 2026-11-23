@@ -17,7 +17,7 @@ const ProjectDetailPage = () => {
         const fetchProject = async () => {
             try {
                 setLoading(true);
-                const res = await fetch('http://localhost:5000/api/projects');
+                const res = await fetch('https://svssngo.onrender.com/api/projects');
                 const data = await res.json();
 
                 if (Array.isArray(data)) {
@@ -53,7 +53,7 @@ const ProjectDetailPage = () => {
     const getImageUrl = (path) => {
         if (!path) return '';
         if (path.startsWith('http://') || path.startsWith('https://')) return path;
-        return `http://localhost:5000${path}`;
+        return `https://svssngo.onrender.com${path}`;
     };
 
     if (loading) {

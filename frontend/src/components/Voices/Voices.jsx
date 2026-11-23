@@ -24,7 +24,7 @@ const Voices = ({ showReadMore }) => {
     useEffect(() => {
         const fetchVoices = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/voices');
+                const res = await fetch('https://svssngo.onrender.com/api/voices');
                 if (res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {

@@ -42,7 +42,7 @@ const MilestonesManager = ({ token }) => {
     const fetchMilestones = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/milestones');
+            const res = await fetch('https://svssngo.onrender.com/api/milestones');
             if (res.ok) {
                 const data = await res.json();
                 if (data && Array.isArray(data.milestones)) {
@@ -115,7 +115,7 @@ const MilestonesManager = ({ token }) => {
         setStatus('Saving milestones...');
 
         try {
-            const res = await fetch('http://localhost:5000/api/milestones', {
+            const res = await fetch('https://svssngo.onrender.com/api/milestones', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -93,7 +93,7 @@ const TeamPage = () => {
     useEffect(() => {
         const fetchTeam = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/team');
+                const res = await fetch('https://svssngo.onrender.com/api/team');
                 if (res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {
@@ -103,7 +103,7 @@ const TeamPage = () => {
                         data.forEach((member, idx) => {
                             let imgUrl = member.image;
                             if (imgUrl && !imgUrl.startsWith('http')) {
-                                imgUrl = `http://localhost:5000${imgUrl}`;
+                                imgUrl = `https://svssngo.onrender.com${imgUrl}`;
                             }
 
                             const isStaff = member.category === 'staff';

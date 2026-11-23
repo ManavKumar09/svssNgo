@@ -27,7 +27,7 @@ const Activities = () => {
     useEffect(() => {
         const fetchActivities = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/activities');
+                const res = await fetch('https://svssngo.onrender.com/api/activities');
                 if (res.ok) {
                     const data = await res.json();
                     if (data && Array.isArray(data.yearlyData) && data.yearlyData.length > 0) {

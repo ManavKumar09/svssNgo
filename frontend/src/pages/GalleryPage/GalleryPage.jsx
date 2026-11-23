@@ -10,10 +10,10 @@ const GalleryPage = () => {
     React.useEffect(() => {
         const fetchGallery = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/gallery');
+                const res = await fetch('https://svssngo.onrender.com/api/gallery');
                 const data = await res.json();
                 if (Array.isArray(data)) {
-                    setDynamicImages(data.map(item => `http://localhost:5000${item.imageUrl}`));
+                    setDynamicImages(data.map(item => `https://svssngo.onrender.com${item.imageUrl}`));
                 }
             } catch (err) {
                 console.error('Failed to load dynamic gallery images', err);

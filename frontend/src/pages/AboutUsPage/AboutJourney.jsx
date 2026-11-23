@@ -39,7 +39,7 @@ const AboutJourney = () => {
     useEffect(() => {
         const fetchMilestones = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/milestones');
+                const res = await fetch('https://svssngo.onrender.com/api/milestones');
                 if (res.ok) {
                     const data = await res.json();
                     if (data && Array.isArray(data.milestones) && data.milestones.length > 0) {

@@ -10,7 +10,7 @@ const InquiriesManager = ({ token }) => {
     const fetchInquiries = async () => {
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5000/api/forms/inquiries', {
+            const res = await fetch('https://svssngo.onrender.com/api/forms/inquiries', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -34,7 +34,7 @@ const InquiriesManager = ({ token }) => {
         if (!window.confirm('Are you sure you want to delete this inquiry?')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/forms/inquiries/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/forms/inquiries/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -136,7 +136,7 @@ const InquiriesManager = ({ token }) => {
                                     <td>
                                         {item.resume_file ? (
                                             <a 
-                                                href={`http://localhost:5000${item.resume_file}`} 
+                                                href={`https://svssngo.onrender.com${item.resume_file}`} 
                                                 target="_blank" 
                                                 rel="noreferrer" 
                                                 className="action-pill-btn view"
@@ -232,7 +232,7 @@ const InquiriesManager = ({ token }) => {
                                         <div className="detail-row">
                                             <span className="detail-label">Attached Resume:</span>
                                             <a 
-                                                href={`http://localhost:5000${selectedInquiry.resume_file}`} 
+                                                href={`https://svssngo.onrender.com${selectedInquiry.resume_file}`} 
                                                 target="_blank" 
                                                 rel="noreferrer" 
                                                 className="action-pill-btn view"

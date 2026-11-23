@@ -29,7 +29,7 @@ const PartnersManager = ({ token }) => {
     const fetchPartners = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/partners');
+            const res = await fetch('https://svssngo.onrender.com/api/partners');
             const data = await res.json();
             if (Array.isArray(data)) {
                 setPartners(data);
@@ -56,9 +56,9 @@ const PartnersManager = ({ token }) => {
                     order: partnerToEdit.order !== undefined ? partnerToEdit.order : 0
                 });
                 setCurrentLogo(partnerToEdit.logo || '');
-                setLogoPreview(partnerToEdit.logo ? (partnerToEdit.logo.startsWith('http') ? partnerToEdit.logo : `http://localhost:5000${partnerToEdit.logo}`) : '');
+                setLogoPreview(partnerToEdit.logo ? (partnerToEdit.logo.startsWith('http') ? partnerToEdit.logo : `https://svssngo.onrender.com${partnerToEdit.logo}`) : '');
             } else {
-                fetch(`http://localhost:5000/api/partners/${editId}`)
+                fetch(`https://svssngo.onrender.com/api/partners/${editId}`)
                     .then(res => res.json())
                     .then(data => {
                         if (data && data.name) {
@@ -68,7 +68,7 @@ const PartnersManager = ({ token }) => {
                                 order: data.order !== undefined ? data.order : 0
                             });
                             setCurrentLogo(data.logo || '');
-                            setLogoPreview(data.logo ? (data.logo.startsWith('http') ? data.logo : `http://localhost:5000${data.logo}`) : '');
+                            setLogoPreview(data.logo ? (data.logo.startsWith('http') ? data.logo : `https://svssngo.onrender.com${data.logo}`) : '');
                         }
                     })
                     .catch(console.error);
@@ -108,8 +108,8 @@ const PartnersManager = ({ token }) => {
 
         try {
             const url = editId
-                ? `http://localhost:5000/api/partners/${editId}`
-                : 'http://localhost:5000/api/partners';
+                ? `https://svssngo.onrender.com/api/partners/${editId}`
+                : 'https://svssngo.onrender.com/api/partners';
             const method = editId ? 'PUT' : 'POST';
 
             const res = await fetch(url, {
@@ -141,7 +141,7 @@ const PartnersManager = ({ token }) => {
         if (!window.confirm(`Are you sure you want to delete "${name}"?`)) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/partners/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/partners/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -303,7 +303,7 @@ const PartnersManager = ({ token }) => {
                                     <td>
                                         <div className="partner-logo-cell">
                                             <img
-                                                src={p.logo ? (p.logo.startsWith('http') ? p.logo : `http://localhost:5000${p.logo}`) : ''}
+                                                src={p.logo ? (p.logo.startsWith('http') ? p.logo : `https://svssngo.onrender.com${p.logo}`) : ''}
                                                 alt={p.name}
                                                 className="partner-logo-img"
                                                 onError={(e) => { e.target.style.display = 'none'; }}

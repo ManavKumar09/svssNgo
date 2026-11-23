@@ -175,7 +175,7 @@ const AdminPage = () => {
             setIsAuthenticated(true);
             
             // Fetch latest user details
-            fetch('http://localhost:5000/api/auth/me', {
+            fetch('https://svssngo.onrender.com/api/auth/me', {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
             .then(res => res.ok ? res.json() : null)
@@ -193,7 +193,7 @@ const AdminPage = () => {
         e.preventDefault();
         setError('');
         try {
-            const res = await fetch('http://localhost:5000/api/auth/login', {
+            const res = await fetch('https://svssngo.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })

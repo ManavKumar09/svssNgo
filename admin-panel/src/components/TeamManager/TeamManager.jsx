@@ -32,7 +32,7 @@ const TeamManager = ({ token }) => {
     const fetchMembers = async () => {
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:5000/api/team');
+            const res = await fetch('https://svssngo.onrender.com/api/team');
             const data = await res.json();
             if (Array.isArray(data)) {
                 setMembers(data);
@@ -65,9 +65,9 @@ const TeamManager = ({ token }) => {
                     category: memberToEdit.category || 'executive'
                 });
                 setCurrentImage(memberToEdit.image || '');
-                setPhotoPreview(memberToEdit.image ? (memberToEdit.image.startsWith('http') ? memberToEdit.image : `http://localhost:5000${memberToEdit.image}`) : '');
+                setPhotoPreview(memberToEdit.image ? (memberToEdit.image.startsWith('http') ? memberToEdit.image : `https://svssngo.onrender.com${memberToEdit.image}`) : '');
             } else {
-                fetch(`http://localhost:5000/api/team/${editId}`)
+                fetch(`https://svssngo.onrender.com/api/team/${editId}`)
                     .then(res => res.json())
                     .then(data => {
                         if (data && data.name) {
@@ -79,7 +79,7 @@ const TeamManager = ({ token }) => {
                                 category: data.category || 'executive'
                             });
                             setCurrentImage(data.image || '');
-                            setPhotoPreview(data.image ? (data.image.startsWith('http') ? data.image : `http://localhost:5000${data.image}`) : '');
+                            setPhotoPreview(data.image ? (data.image.startsWith('http') ? data.image : `https://svssngo.onrender.com${data.image}`) : '');
                         }
                     })
                     .catch(console.error);
@@ -125,8 +125,8 @@ const TeamManager = ({ token }) => {
 
         try {
             const url = editId 
-                ? `http://localhost:5000/api/team/${editId}`
-                : 'http://localhost:5000/api/team';
+                ? `https://svssngo.onrender.com/api/team/${editId}`
+                : 'https://svssngo.onrender.com/api/team';
             
             const method = editId ? 'PUT' : 'POST';
 
@@ -159,7 +159,7 @@ const TeamManager = ({ token }) => {
         if (!window.confirm(`Are you sure you want to remove "${name}" from the team?`)) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/team/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/team/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -387,7 +387,7 @@ const TeamManager = ({ token }) => {
                         <tbody>
                             {displayedMembers.map((member) => {
                                 const imgSrc = member.image 
-                                    ? (member.image.startsWith('http') ? member.image : `http://localhost:5000${member.image}`)
+                                    ? (member.image.startsWith('http') ? member.image : `https://svssngo.onrender.com${member.image}`)
                                     : '';
                                 
                                 const roleClass = member.role ? member.role.toLowerCase().replace(/\s+/g, '-') : '';

@@ -17,7 +17,7 @@ const PoliciesManager = ({ token }) => {
 
     const fetchPolicies = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/policies');
+            const res = await fetch('https://svssngo.onrender.com/api/policies');
             const data = await res.json();
             setPolicies(data);
         } catch (err) {
@@ -43,7 +43,7 @@ const PoliciesManager = ({ token }) => {
         }
 
         try {
-            const res = await fetch('http://localhost:5000/api/policies', {
+            const res = await fetch('https://svssngo.onrender.com/api/policies', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -72,7 +72,7 @@ const PoliciesManager = ({ token }) => {
         if (!window.confirm('Are you sure you want to delete this document?')) return;
         
         try {
-            const res = await fetch(`http://localhost:5000/api/policies/${id}`, {
+            const res = await fetch(`https://svssngo.onrender.com/api/policies/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -200,7 +200,7 @@ const PoliciesManager = ({ token }) => {
                             <td>
                                 {p.document ? (
                                     <a 
-                                        href={`http://localhost:5000${p.document}`} 
+                                        href={`https://svssngo.onrender.com${p.document}`} 
                                         target="_blank" 
                                         rel="noreferrer" 
                                         className="action-pill-btn view"

@@ -12,12 +12,12 @@ const Partners = () => {
     useEffect(() => {
         const fetchPartners = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/partners');
+                const res = await fetch('https://svssngo.onrender.com/api/partners');
                 if (res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {
                         const formatted = data.map(item => ({
-                            imgSrc: item.logo ? (item.logo.startsWith('http') ? item.logo : `http://localhost:5000${item.logo}`) : '',
+                            imgSrc: item.logo ? (item.logo.startsWith('http') ? item.logo : `https://svssngo.onrender.com${item.logo}`) : '',
                             name: item.name || 'Partner'
                         })).filter(item => Boolean(item.imgSrc));
 

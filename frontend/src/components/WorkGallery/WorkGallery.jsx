@@ -13,12 +13,12 @@ const WorkGallery = () => {
     useEffect(() => {
         const fetchGallery = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/gallery');
+                const res = await fetch('https://svssngo.onrender.com/api/gallery');
                 if (res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {
                         const dynamicUrls = data.map(item => 
-                            item.imageUrl.startsWith('http') ? item.imageUrl : `http://localhost:5000${item.imageUrl}`
+                            item.imageUrl.startsWith('http') ? item.imageUrl : `https://svssngo.onrender.com${item.imageUrl}`
                         );
                         setImages(dynamicUrls.slice(0, 8));
                     }

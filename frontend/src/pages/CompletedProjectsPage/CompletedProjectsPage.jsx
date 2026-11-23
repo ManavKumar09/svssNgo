@@ -42,7 +42,7 @@ const CompletedProjectsPage = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/projects');
+                const res = await fetch('https://svssngo.onrender.com/api/projects');
                 const data = await res.json();
                 if (Array.isArray(data)) {
                     const completed = data.filter(p => p.category === 'completed' && p.theme);
@@ -58,14 +58,14 @@ const CompletedProjectsPage = () => {
                                 badge: defaultThemeInfo[themeKey]?.badge || 'Key Focus Area',
                                 link: `/completed-projects/${themeKey}`,
                                 image: p.headerImage 
-                                    ? (p.headerImage.startsWith('http') ? p.headerImage : `http://localhost:5000${p.headerImage}`)
+                                    ? (p.headerImage.startsWith('http') ? p.headerImage : `https://svssngo.onrender.com${p.headerImage}`)
                                     : defaultCategoryImg,
                                 count: 1
                             };
                         } else {
                             themeMap[themeKey].count++;
                             if (p.headerImage && (!themeMap[themeKey].image || themeMap[themeKey].image === defaultCategoryImg)) {
-                                themeMap[themeKey].image = p.headerImage.startsWith('http') ? p.headerImage : `http://localhost:5000${p.headerImage}`;
+                                themeMap[themeKey].image = p.headerImage.startsWith('http') ? p.headerImage : `https://svssngo.onrender.com${p.headerImage}`;
                             }
                         }
                     });

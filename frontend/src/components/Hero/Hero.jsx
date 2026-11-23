@@ -61,13 +61,13 @@ function Hero() {
   useEffect(() => {
     const fetchHeroSlides = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/hero');
+        const res = await fetch('https://svssngo.onrender.com/api/hero');
         if (res.ok) {
           const data = await res.json();
           if (Array.isArray(data) && data.length > 0) {
             setDynamicSlides(data.map(slide => ({
               ...slide,
-              imageUrl: slide.imageUrl.startsWith('http') ? slide.imageUrl : `http://localhost:5000${slide.imageUrl}`
+              imageUrl: slide.imageUrl.startsWith('http') ? slide.imageUrl : `https://svssngo.onrender.com${slide.imageUrl}`
             })));
           }
         }
@@ -78,7 +78,7 @@ function Hero() {
 
     const fetchStats = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/stats');
+        const res = await fetch('https://svssngo.onrender.com/api/stats');
         if (res.ok) {
           const data = await res.json();
           if (Array.isArray(data)) {

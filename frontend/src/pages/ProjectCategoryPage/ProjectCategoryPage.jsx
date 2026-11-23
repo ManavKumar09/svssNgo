@@ -51,7 +51,7 @@ const ProjectCategoryPage = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/projects');
+                const res = await fetch('https://svssngo.onrender.com/api/projects');
                 const data = await res.json();
                 
                 if (Array.isArray(data)) {
@@ -131,7 +131,7 @@ const ProjectCategoryPage = () => {
                                     <div className="project-leaf-image-container">
                                         {project.headerImage ? (
                                             <img 
-                                                src={project.headerImage.startsWith('http') ? project.headerImage : `http://localhost:5000${project.headerImage}`} 
+                                                src={project.headerImage.startsWith('http') ? project.headerImage : `https://svssngo.onrender.com${project.headerImage}`} 
                                                 alt={project.title} 
                                                 className="project-leaf-image" 
                                             />

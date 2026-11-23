@@ -11,7 +11,7 @@ const DocumentsPage = () => {
     useEffect(() => {
         const fetchDocuments = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/policies');
+                const res = await fetch('https://svssngo.onrender.com/api/policies');
                 const data = await res.json();
                 setDocuments(data);
                 setLoading(false);
@@ -32,7 +32,7 @@ const DocumentsPage = () => {
         return (
             <div className="document-links-grid">
                 {filteredDocs.map(doc => {
-                    const fileUrl = doc.document ? `http://localhost:5000${doc.document}` : '#';
+                    const fileUrl = doc.document ? `https://svssngo.onrender.com${doc.document}` : '#';
                     const isWordDoc = fileUrl.endsWith('.doc') || fileUrl.endsWith('.docx');
                     
                     return (
