@@ -8,9 +8,9 @@ dotenv.config();
 
 const cloudinary = require('cloudinary').v2;
 cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 't6h2lvhg',
-    api_key: process.env.CLOUDINARY_API_KEY || '991397586125354',
-    api_secret: process.env.CLOUDINARY_API_SECRET || 'fZ9KP8eflfB5GHSN5IW-SLGvqto'
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const frontendPhotosDir = path.join(__dirname, '..', 'frontend', 'src', 'assets', 'photos');
