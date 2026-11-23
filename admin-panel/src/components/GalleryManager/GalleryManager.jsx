@@ -211,7 +211,7 @@ const GalleryManager = ({ token }) => {
                                     <td>
                                         <div className="gallery-thumb-cell">
                                             <img
-                                                src={`https://svssngo.onrender.com${item.imageUrl}`}
+                                                src={item.imageUrl.startsWith('http') ? item.imageUrl : `https://svssngo.onrender.com${item.imageUrl}`}
                                                 alt={item.title || 'Image thumbnail'}
                                                 onError={(e) => { e.target.style.display = 'none'; }}
                                             />
