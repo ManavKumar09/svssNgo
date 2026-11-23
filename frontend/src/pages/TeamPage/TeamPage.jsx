@@ -106,14 +106,29 @@ const TeamPage = () => {
                                 imgUrl = `https://svssngo.onrender.com${imgUrl}`;
                             }
 
-                            const isStaff = member.category === 'staff';
-                            const defaultFallbackList = isStaff ? defaultStaffMembers : defaultExecutiveMembers;
-                            const fallbackIndex = isStaff 
-                                ? staff.length % defaultStaffMembers.length 
-                                : executives.length % defaultExecutiveMembers.length;
+                            const defaultFallbackMap = {
+                                'Sanjoy Kumar Sharma': PresidentImg,
+                                'Ranjan Kumar': VicePresidentImg,
+                                'Sujoy Aich': SecretaryImg,
+                                'Dhirendra Kushwaha': TreasurerImg,
+                                'Shipra Dey': ExecMember1,
+                                'Urvashi Wadhwa': ExecMember2,
+                                'Sanjay Khade': ExecMember3,
+                                'Ravindra Shankar Roy': ExecMember4,
+                                'Ajay Soni': ExecMember5,
+                                'Vaibhav Dwivedi': Staff1,
+                                'Rajendra Singh Gahlot': Staff2,
+                                'Jayant Dey': Staff3,
+                                'Vimal Sharma': Staff4,
+                                'Rishabh': Staff5,
+                                'Preeti Dhurwey': Staff6
+                            };
 
-                            if (!imgUrl && defaultFallbackList[fallbackIndex]) {
-                                imgUrl = defaultFallbackList[fallbackIndex].image;
+                            const memberFallback = defaultFallbackMap[member.name] || 
+                                (isStaff ? defaultStaffMembers[staff.length % defaultStaffMembers.length]?.image : defaultExecutiveMembers[executives.length % defaultExecutiveMembers.length]?.image);
+
+                            if (!imgUrl) {
+                                imgUrl = memberFallback;
                             }
 
                             const formattedMember = {
@@ -121,7 +136,8 @@ const TeamPage = () => {
                                 name: member.name,
                                 role: member.role,
                                 detail: member.detail,
-                                image: imgUrl || (isStaff ? Staff1 : PresidentImg),
+                                image: imgUrl || memberFallback,
+                                fallbackImage: memberFallback,
                                 category: member.category || 'executive'
                             };
 
@@ -204,13 +220,13 @@ const TeamPage = () => {
                 <div className="team-content-container">
                     {activeTab === 'executive' && (
                         <div className="team-grid animate-fade-in">
-                            {executiveMembers.map((member) => renderMemberCard(member, PresidentImg))}
+                            {executiveMembers.map((member) => renderMemberCard(member, member.fallbackImage || PresidentImg))}
                         </div>
                     )}
 
                     {activeTab === 'staff' && (
                         <div className="team-grid animate-fade-in">
-                            {staffMembers.map((member) => renderMemberCard(member, Staff1))}
+                            {staffMembers.map((member) => renderMemberCard(member, member.fallbackImage || Staff1))}
                         </div>
                     )}
                 </div>

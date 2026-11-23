@@ -6,6 +6,35 @@ import Footer from '../../components/Footer/Footer';
 import FadeIn from '../../components/FadeIn/FadeIn';
 import ProjectDetailPage from '../ProjectDetailPage/ProjectDetailPage';
 
+import defaultCategoryImg from '../../assets/photos/aboutusgallery.JPG';
+import aerImg from '../../assets/photos/Aer/Aer1.png';
+import fcpImg from '../../assets/photos/fcp/fcp1.png';
+import ifImg from '../../assets/photos/IntegratedFarming/IntegratedFarming1.png';
+import edpImg from '../../assets/photos/Entrepreneurship/Entrepreneurship1.png';
+import livelihoodImg from '../../assets/photos/LivelihoodDevelopment/livelihoodDevelopment1.png';
+import rkskImg from '../../assets/photos/NationalHealth/NationalHealth1.png';
+import ashaImg from '../../assets/photos/nhmASHA/nhaASHA1.png';
+import tiImg from '../../assets/photos/targetedIntervention/targetedIntervention1.png';
+import wfpImg from '../../assets/photos/WorldFood/WorldFood1.png';
+import climateImg from '../../assets/photos/ClimateChange/enhanced_climate_1.png';
+import childlineImg from '../../assets/photos/childline/childline4.png';
+import shgImg from '../../assets/photos/SelfHelpGroup/SelfHelpGroup1.png';
+
+const defaultSlugImageMap = {
+    'aer-under-atma': aerImg,
+    'farmer-club-promotion': fcpImg,
+    'integrated-farming-eco-friendly-agriculture': ifImg,
+    'entrepreneurship-development-program': edpImg,
+    'livelihood-development-safe-drinking-water': livelihoodImg,
+    'national-health-mission-rksk-program': rkskImg,
+    'nhm-asha-training-program': ashaImg,
+    'targeted-intervention-for-sti-and-hiv': tiImg,
+    'world-food-programme': wfpImg,
+    'climate-change-initiative': climateImg,
+    'child-help-line-1098': childlineImg,
+    'formation-and-strengthening-self-help-group': shgImg
+};
+
 const defaultCategoryTitles = {
     'agriculture-livelihood': 'Agriculture & Livelihoods',
     'health-sanitation': 'Health & Sanitation',
@@ -129,15 +158,16 @@ const ProjectCategoryPage = () => {
                             <FadeIn key={project._id} delay={index * 0.15} direction="up">
                                 <div className="project-leaf-card">
                                     <div className="project-leaf-image-container">
-                                        {project.headerImage ? (
-                                            <img 
-                                                src={project.headerImage.startsWith('http') ? project.headerImage : `https://svssngo.onrender.com${project.headerImage}`} 
-                                                alt={project.title} 
-                                                className="project-leaf-image" 
-                                            />
-                                        ) : (
-                                            <div className="project-leaf-image-blank"></div>
-                                        )}
+                                        <img 
+                                            src={project.headerImage ? (project.headerImage.startsWith('http') ? project.headerImage : `https://svssngo.onrender.com${project.headerImage}`) : defaultSlugImageMap[defaultSlug]} 
+                                            alt={project.title} 
+                                            className="project-leaf-image" 
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                const fallback = defaultSlugImageMap[defaultSlug] || defaultCategoryImg;
+                                                e.target.src = fallback;
+                                            }}
+                                        />
                                     </div>
                                     <div className="project-leaf-content">
                                         <h2>{project.title}</h2>
