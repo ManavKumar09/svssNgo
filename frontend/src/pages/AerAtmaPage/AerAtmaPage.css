@@ -1,0 +1,10 @@
+/* Reusing Project Details Page General Styles */
+.aer-atma-page.project-details-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+.aer-atma-page .project-text-content p {
+    margin-bottom: 15px;
+}

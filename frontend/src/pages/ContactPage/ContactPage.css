@@ -1,0 +1,216 @@
+.contact-page {
+    background-color: #FDF8F0; /* Soft beige */
+    color: #121212;
+    min-height: 100vh;
+}
+
+.contact-page-header {
+    background-color: #FDF8F0;
+}
+
+/* Adjust navbar style for beige background */
+.contact-page-header .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.contact-page-header .hamburger-menu {
+    color: #121212;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.contact-page-header .hamburger-menu:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+.contact-page-header .logo-text-svss {
+    color: #121212;
+}
+.contact-page-header .take-action-link {
+    color: #121212;
+}
+
+.contact-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 2rem 80px;
+}
+
+.contact-subtitle {
+    color: #F58220; /* Orange color */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.contact-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #1a2a22; /* Dark green/black */
+}
+
+.contact-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 800px;
+    color: #4a5a52; /* dark greyish green */
+}
+
+.contact-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 100px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Info Cards */
+.contact-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-info-card {
+    background-color: #FDF8F0;
+    border: 1px solid #e0d5c1;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    color: #F58220;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contact-info-text h3 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a2a22;
+    margin: 0 0 0.5rem 0;
+}
+
+.contact-info-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5a52;
+    margin: 0;
+}
+
+.contact-info-text a {
+    color: #4a5a52;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info-text a:hover {
+    color: #F58220;
+}
+
+.contact-time {
+    font-size: 0.85rem;
+    color: #8c9a92;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Form Styles */
+.message-form-container {
+    background-color: #F5ECD8;
+    padding: 2.5rem;
+    border-radius: 20px;
+}
+
+.form-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a2a22;
+    margin-bottom: 2rem;
+}
+
+.message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a2a22;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0d5c1;
+    border-radius: 6px;
+    background-color: #FDF8F0;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #1a2a22;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1a2a22;
+}
+
+.submit-btn {
+    background-color: #1a4a32; /* Dark green */
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #123321;
+}
+
+@media (max-width: 992px) {
+    .contact-content-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 3.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .message-form-container {
+        padding: 2rem;
+    }
+}

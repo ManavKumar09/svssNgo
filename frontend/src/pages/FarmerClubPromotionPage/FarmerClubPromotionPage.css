@@ -1,0 +1,26 @@
+/* Reusing Project Details Page General Styles */
+.farmer-club-page.project-details-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+.activities-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.activities-list li {
+    font-size: 1.15rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .activities-container {
+        flex-direction: column;
+        gap: 20px !important;
+    }
+}

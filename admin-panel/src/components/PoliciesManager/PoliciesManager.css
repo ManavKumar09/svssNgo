@@ -1,0 +1,11 @@
+/* PoliciesManager Specific Styles */
+@import '../Manager.css';
+
+/* Document category tags if needed */
+.doc-file-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #4b5563;
+}

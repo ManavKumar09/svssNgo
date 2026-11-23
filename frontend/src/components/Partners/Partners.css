@@ -1,0 +1,115 @@
+.partners-section {
+    padding: 6rem 4rem;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+}
+
+.partners-container {
+    max-width: 1400px;
+    width: 100%;
+}
+
+.partners-heading {
+    font-family: var(--font-serif);
+    color: #132a1f; /* Dark green to match other headings */
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.marquee-wrapper {
+    width: 100vw; /* Take full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+/* Gradient masks for smooth fade out at edges */
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-white) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-white) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scrollMarquee 60s linear infinite;
+    align-items: center;
+}
+
+/* Pause on hover */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.partner-logo-container {
+    width: 250px; /* Fixed width for each item */
+    height: 120px;
+    margin: 0 40px; /* Space between items */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.partner-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.05);
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Translate exactly half the width since we duplicated the items */
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .partners-section {
+        padding: 4rem 2rem;
+    }
+    .partners-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .partner-logo-container {
+        width: 180px;
+        margin: 0 20px;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+        width: 50px;
+    }
+}

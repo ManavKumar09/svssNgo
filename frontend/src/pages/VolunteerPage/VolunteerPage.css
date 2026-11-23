@@ -1,0 +1,251 @@
+.policies-page {
+    background-color: #FDF8F0; /* Soft beige from screenshot */
+    color: #121212; /* Dark text */
+    min-height: 100vh;
+}
+
+.policies-page-header {
+    background-color: #FDF8F0;
+}
+
+/* Adjust navbar style for beige background */
+.policies-page-header .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.policies-page-header .hamburger-menu {
+    color: #121212;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.policies-page-header .hamburger-menu:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+.policies-page-header .logo-text-svss {
+    color: #121212;
+}
+.policies-page-header .take-action-link {
+    color: #121212;
+}
+
+.policies-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 2rem 80px;
+}
+
+.policies-subtitle {
+    color: #F58220; /* Orange color */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.policies-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #1a2a22; /* Dark green/black */
+}
+
+.policies-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 800px;
+    color: #4a5a52; /* dark greyish green */
+}
+
+.policies-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.policies-right-col {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Accordion Styles */
+.policies-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.policy-accordion-item {
+    background-color: #FDF8F0;
+    border: 1px solid #e0d5c1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.policy-accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.policy-accordion-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a2a22;
+    margin: 0;
+}
+
+.policy-accordion-icon {
+    color: #4a5a52;
+}
+
+.policy-accordion-content {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.policy-accordion-content.open {
+    padding: 0 1.5rem 1.5rem;
+    max-height: 500px;
+}
+
+.policy-accordion-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5a52;
+    margin-bottom: 1rem;
+}
+
+.policy-accordion-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.policy-accordion-content li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5a52;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Styles */
+.volunteer-form-container {
+    background-color: #F5ECD8;
+    padding: 2.5rem;
+    border-radius: 20px;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+}
+
+.form-subtitle {
+    color: #F58220;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.form-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a2a22;
+    line-height: 1.2;
+}
+
+.volunteer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a2a22;
+    margin-bottom: 0.5rem;
+}
+
+.name-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0d5c1;
+    border-radius: 6px;
+    background-color: #FDF8F0;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #1a2a22;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1a2a22;
+}
+
+.form-group input::placeholder {
+    color: #8c9a92;
+}
+
+.submit-btn {
+    background-color: #1a4a32; /* Dark green */
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    background-color: #123321;
+}
+
+@media (max-width: 1024px) {
+    .policies-content-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .policies-title {
+        font-size: 3.5rem;
+    }
+    
+    .name-fields {
+        grid-template-columns: 1fr;
+    }
+    
+    .volunteer-form-container {
+        padding: 2rem;
+    }
+}

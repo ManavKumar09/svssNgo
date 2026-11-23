@@ -1,0 +1,27 @@
+.fade-in-section {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in-up {
+    transform: translateY(50px);
+}
+
+.fade-in-down {
+    transform: translateY(-50px);
+}
+
+.fade-in-left {
+    transform: translateX(50px);
+}
+
+.fade-in-right {
+    transform: translateX(-50px);
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}

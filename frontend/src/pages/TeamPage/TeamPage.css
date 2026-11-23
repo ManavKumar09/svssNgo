@@ -1,0 +1,232 @@
+.team-page-header {
+    background-color: var(--background-color, #f8f9fa);
+}
+
+.team-page {
+    padding: 100px 5%;
+    min-height: 100vh;
+    background-color: var(--background-color, #f8f9fa);
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.team-title {
+    font-size: 3rem;
+    color: var(--primary-color, #2c3e50);
+    margin-bottom: 15px;
+}
+
+.team-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted, #6c757d);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Tabs Section (matching Documents Page style from user screenshot) */
+.tabs-container {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    gap: 2.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.25s ease;
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    color: #222;
+}
+
+.tab-btn.active {
+    color: #0d6efd; /* Blue color matching the reference image */
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background-color: #0d6efd;
+}
+
+.team-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.35s ease forwards;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 450px;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.team-image-container {
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-image {
+    transform: scale(1.05);
+}
+
+.team-info {
+    width: 55%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.team-info-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-name {
+    font-size: 1.8rem;
+    color: var(--primary-color, #2c3e50);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.team-detail {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    padding-right: 5px;
+}
+
+.team-detail::-webkit-scrollbar {
+    width: 4px;
+}
+.team-detail::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.team-role {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.team-card:hover .team-info {
+    background-color: var(--color-orange, #f07e13);
+}
+
+.team-card:hover .team-name {
+    color: #ffffff;
+}
+
+.team-card:hover .team-detail {
+    opacity: 1;
+    visibility: visible;
+    max-height: 300px;
+}
+
+.team-card:hover .team-role {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .team-card {
+        flex-direction: column;
+        height: auto;
+    }
+    .team-image-container {
+        width: 100%;
+        height: 300px;
+    }
+    .team-info {
+        width: 100%;
+        min-height: 250px;
+    }
+}

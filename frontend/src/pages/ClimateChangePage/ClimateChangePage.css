@@ -1,0 +1,178 @@
+/* Project Details Page General Styles */
+.project-details-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+/* Hero Section */
+.project-hero {
+    position: relative;
+    width: 100%;
+    min-height: 70vh; /* Taller to show more of the image */
+    padding: 120px 0 80px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(19, 42, 31, 0.9) 0%, rgba(19, 42, 31, 0.6) 50%, rgba(19, 42, 31, 0.3) 100%);
+}
+
+.project-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+    max-width: 900px; /* Wider for long titles */
+    padding: 0 5%;
+}
+
+.project-hero-content h1 {
+    font-size: clamp(2.2rem, 4vw, 3.8rem); /* Slightly smaller max font size */
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-family: var(--font-sans);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-breadcrumbs {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.project-breadcrumbs a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.project-breadcrumbs a:hover {
+    color: var(--color-orange, #f07e13);
+}
+
+.project-breadcrumbs span {
+    color: var(--color-orange, #f07e13);
+}
+
+/* Main Content Container */
+.project-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+/* Alternating Blocks */
+.project-content-block {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.project-content-block.reversed {
+    flex-direction: row-reverse;
+}
+
+.project-text-content {
+    flex: 1;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-orange, #f07e13);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.project-text-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #132a1f;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    font-family: var(--font-serif);
+}
+
+.project-text-content p {
+    font-size: 1.15rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-text-content ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    font-size: 1.15rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.7;
+}
+
+.project-text-content li {
+    margin-bottom: 10px;
+}
+
+.project-text-content .lead-paragraph {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #132a1f;
+}
+
+.center-text {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-image-content {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.project-image-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-image-content:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .project-content-block,
+    .project-content-block.reversed {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .project-image-content {
+        width: 100%;
+    }
+    
+    .project-hero {
+        height: 50vh;
+    }
+}

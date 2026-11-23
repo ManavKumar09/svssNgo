@@ -1,0 +1,156 @@
+.shg-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+/* Hero Section */
+.shg-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shg-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(19, 42, 31, 0.9) 0%, rgba(19, 42, 31, 0.6) 50%, rgba(19, 42, 31, 0.3) 100%);
+}
+
+.shg-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+    max-width: 800px;
+    padding: 0 5%;
+}
+
+.shg-hero-content h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-family: var(--font-sans);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.shg-breadcrumbs {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.shg-breadcrumbs a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.shg-breadcrumbs a:hover {
+    color: var(--color-orange, #f07e13);
+}
+
+.shg-breadcrumbs span {
+    color: var(--color-orange, #f07e13);
+}
+
+
+.shg-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.shg-header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: none; /* Hidden since we have the hero section now */
+}
+
+.shg-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.shg-header .highlight {
+    color: #e67e22;
+}
+
+.shg-intro {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.shg-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 60px;
+    gap: 40px;
+}
+
+.shg-text {
+    flex: 1 1 500px;
+}
+
+.shg-text h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.shg-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.shg-images {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shg-image-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shg-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.shg-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .shg-header h1 {
+        font-size: 2rem;
+    }
+    
+    .shg-section {
+        flex-direction: column;
+    }
+}

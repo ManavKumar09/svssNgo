@@ -1,0 +1,245 @@
+/* Hero Manager Layout & Form */
+.hero-form-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .hero-form-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-thumb-cell {
+    width: 110px;
+    height: 64px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+}
+
+.hero-thumb-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-table-headline {
+    font-size: 14.5px;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.accent-orange-text {
+    color: #d97706;
+    font-weight: 700;
+}
+
+.hero-table-subtext {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hero-btn-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-chip {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hero-chip.primary {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.hero-chip.outline {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+/* Status toggle pill */
+.status-toggle-pill {
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.status-toggle-pill.active {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status-toggle-pill.active:hover {
+    background-color: #bbf7d0;
+}
+
+.status-toggle-pill.inactive {
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+.status-toggle-pill.inactive:hover {
+    background-color: #e5e7eb;
+}
+
+.checkbox-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.checkbox-toggle-wrap input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.toggle-label-text {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+}
+
+/* Live Simulation Card */
+.hero-preview-sidebar {
+    position: sticky;
+    top: 2rem;
+}
+
+.preview-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px 0;
+}
+
+.preview-subtext {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0 0 1rem 0;
+}
+
+.hero-live-sim-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #d1d5db;
+}
+
+.hero-sim-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.hero-sim-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 30, 20, 0.88) 0%, rgba(10, 20, 15, 0.65) 100%);
+}
+
+.hero-sim-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 100%;
+}
+
+.hero-sim-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d1fae5;
+    margin-bottom: 0.75rem;
+}
+
+.hero-sim-title {
+    font-family: serif;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 0.75rem 0;
+}
+
+.sim-white {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sim-orange {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.hero-sim-subtitle {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: #e5e7eb;
+    margin: 0 0 1.25rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hero-sim-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sim-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sim-btn-primary {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+.sim-btn-outline {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+}

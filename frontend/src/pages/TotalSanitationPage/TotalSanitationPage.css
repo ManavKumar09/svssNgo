@@ -1,0 +1,30 @@
+/* Reusing Project Details Page General Styles to match all other completed projects */
+.total-sanitation-page.project-details-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+.total-sanitation-page .project-hero {
+    background: linear-gradient(135deg, #132a1f 0%, #1e3f2e 100%);
+}
+
+.total-sanitation-page .activities-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.total-sanitation-page .activities-list li {
+    font-size: 1.1rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.total-sanitation-page .blank-photo-placeholder {
+    width: 100%;
+    min-height: 340px;
+    background-color: #e5e9e3;
+    border-radius: 20px;
+}

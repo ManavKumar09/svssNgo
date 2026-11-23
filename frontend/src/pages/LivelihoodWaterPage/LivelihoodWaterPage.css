@@ -1,0 +1,38 @@
+/* Reusing Project Details Page General Styles */
+.livelihood-water-page.project-details-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+.livelihood-water-page .activities-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.livelihood-water-page .activities-list li {
+    font-size: 1.1rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.role-box {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.role-box h3 {
+    color: var(--color-orange, #f07e13);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-family: var(--font-serif);
+}
+
+.livelihood-water-page .project-text-content h2 {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,24 @@
+/* Reusing Project Details Page General Styles */
+.targeted-intervention-page.project-details-page {
+    width: 100%;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+}
+
+.activities-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.activities-list li {
+    font-size: 1.15rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.activities-list li strong {
+    color: #132a1f;
+}

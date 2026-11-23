@@ -1,0 +1,39 @@
+/* Variables & Tokens */
+:root {
+    --color-orange: #f07e13;
+    --color-orange-hover: #e06c00;
+    --color-white: #ffffff;
+    --color-off-white: rgba(255, 255, 255, 0.85);
+    --color-dark: #121212;
+    --font-sans: 'Outfit', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html, #root {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-sans);
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}

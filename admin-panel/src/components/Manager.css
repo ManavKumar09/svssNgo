@@ -1,0 +1,710 @@
+/* SVSS Admin Manager Styles - Screenshot Structure with Off-White Theme & SVSS Colors */
+
+.manager-container {
+    padding: 0;
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ==========================================================================
+   Horizontal Category Pill Tabs (Reference Screenshot Structure)
+   ========================================================================== */
+.manager-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.manager-tab-btn {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    padding: 9px 22px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition, all 0.25s cubic-bezier(0.16, 1, 0.3, 1));
+    letter-spacing: 0.2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.manager-tab-btn:hover {
+    color: #111827;
+    border-color: #d1d5db;
+    background-color: #f9fafb;
+}
+
+/* Active pill tab with prominent pill styling */
+.manager-tab-btn.active {
+    background-color: #111827;
+    border-color: #111827;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   Section Header & "+ ADD" Action Button (Directly from Screenshot)
+   ========================================================================== */
+.manager-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.manager-section-title {
+    margin: 0;
+    color: #111827;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Gradient Pill Button matching "+ ADD PROJECT" in reference image */
+.add-btn-gradient {
+    background: linear-gradient(90deg, #f07e13 0%, #ff5e00 100%);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(240, 126, 19, 0.35);
+    transition: var(--transition, all 0.25s cubic-bezier(0.16, 1, 0.3, 1));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.add-btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240, 126, 19, 0.45);
+    filter: brightness(1.06);
+}
+
+.add-btn-gradient:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Table List Card (Rounded Card Container on Off-White Background)
+   ========================================================================== */
+.manager-list-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table thead th {
+    background-color: #f9fafb;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 28px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table tbody td {
+    padding: 20px 28px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    vertical-align: middle;
+    color: #111827;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #fbfcfd;
+}
+
+.table-title-cell {
+    font-weight: 600;
+    color: #111827;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+}
+
+.table-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-current {
+    background: rgba(240, 126, 19, 0.1);
+    color: #f07e13;
+    border: 1px solid rgba(240, 126, 19, 0.25);
+}
+
+.badge-completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.truncate-text {
+    max-width: 440px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #4b5563;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.no-file-text {
+    color: #9ca3af;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.table-actions-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   Action Pill Buttons (Edit / Delete / View File)
+   ========================================================================== */
+.action-pill-btn {
+    border-radius: 9999px;
+    padding: 6px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition, all 0.2s ease);
+    border: 1px solid;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.action-pill-btn.edit {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    border-color: #d1d5db;
+}
+
+.action-pill-btn.edit:hover {
+    background-color: #e5e7eb;
+    border-color: #9ca3af;
+    color: #111827;
+    transform: translateY(-1px);
+}
+
+.action-pill-btn.delete {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+}
+
+.action-pill-btn.delete:hover {
+    background-color: #fee2e2;
+    border-color: #f87171;
+    color: #b91c1c;
+    transform: translateY(-1px);
+}
+
+.action-pill-btn.view {
+    background-color: rgba(240, 126, 19, 0.08);
+    color: #f07e13;
+    border-color: rgba(240, 126, 19, 0.25);
+}
+
+.action-pill-btn.view:hover {
+    background-color: rgba(240, 126, 19, 0.16);
+    border-color: #f07e13;
+    transform: translateY(-1px);
+}
+
+/* Empty State */
+.empty-table-state {
+    padding: 50px 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   Modal Form
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 24, 39, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    padding: 20px;
+}
+
+.modal-content {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 34px 32px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    color: #111827;
+    font-family: inherit;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.3px;
+}
+
+.close-btn {
+    background: none;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #6b7280;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition, all 0.2s ease);
+}
+
+.close-btn:hover {
+    color: #111827;
+    border-color: #d1d5db;
+    background-color: #f3f4f6;
+}
+
+/* Modal Form Fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 18px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #374151;
+    font-size: 13.5px;
+    letter-spacing: 0.2px;
+}
+
+.form-group input[type="text"], 
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #111827;
+    transition: var(--transition, all 0.2s ease);
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 9px 12px;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 12.5px;
+    color: #4b5563;
+    cursor: pointer;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #f07e13;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(240, 126, 19, 0.15);
+}
+
+.modal-submit-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #f07e13 0%, #ff8c20 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition, all 0.2s ease);
+    margin-top: 10px;
+    box-shadow: 0 4px 14px rgba(240, 126, 19, 0.3);
+}
+
+.modal-submit-btn:hover {
+    background: linear-gradient(135deg, #e06c00 0%, #f07e13 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(240, 126, 19, 0.4);
+}
+
+.status-msg {
+    margin-top: 16px;
+    color: #059669;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 11px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Dedicated Add Page Styles (New Page for Adding Projects / Documents)
+   ========================================================================== */
+.page-header-actions {
+    margin-bottom: 24px;
+}
+
+.back-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition, all 0.2s ease);
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    font-family: inherit;
+}
+
+.back-link-btn:hover {
+    color: #111827;
+    border-color: #d1d5db;
+    background-color: #f9fafb;
+    transform: translateX(-2px);
+}
+
+.back-arrow {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.manager-section-subtitle {
+    margin: 6px 0 0 0;
+    color: #6b7280;
+    font-size: 14.5px;
+    font-weight: 400;
+}
+
+.manager-form-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 36px 42px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    max-width: 860px;
+}
+
+.form-actions-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.action-pill-btn.secondary {
+    background-color: #ffffff;
+    color: #4b5563;
+    border-color: #d1d5db;
+    padding: 11px 26px;
+    font-size: 13.5px;
+    cursor: pointer;
+}
+
+.action-pill-btn.secondary:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+    border-color: #9ca3af;
+}
+
+/* ==========================================================================
+   Gallery Manager Specific Styles
+   ========================================================================== */
+.gallery-thumb-cell {
+    width: 64px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-thumb-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.no-title-text {
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 13.5px;
+}
+
+.gallery-preview-container {
+    margin-top: 16px;
+    margin-bottom: 20px;
+    background-color: #f9fafb;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.preview-label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 10px;
+}
+
+.gallery-preview-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.preview-thumb-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.preview-thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   Inquiries Manager Specific Styles
+   ========================================================================== */
+.inquiry-detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 13.5px;
+}
+
+.detail-label {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #111827;
+    font-weight: 600;
+}
+
+.detail-value.link {
+    color: #f07e13;
+    text-decoration: none;
+}
+
+.detail-value.link:hover {
+    text-decoration: underline;
+}
+
+.detail-message-box {
+    margin-top: 10px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.detail-message-text {
+    margin: 8px 0 0 0;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* ==========================================================================
+   Team Members Styling
+   ========================================================================== */
+.team-member-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.team-avatar-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #f3f4f6;
+    flex-shrink: 0;
+}
+
+.team-avatar-fallback {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(240, 126, 19, 0.15), rgba(240, 126, 19, 0.3));
+    color: #f07e13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.team-member-name {
+    font-weight: 600;
+    color: #111827;
+    font-size: 14px;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fde68a;
+}
+
+.role-badge.president {
+    background-color: rgba(240, 126, 19, 0.12);
+    color: #f07e13;
+    border-color: rgba(240, 126, 19, 0.28);
+}
+
+.role-badge.secretary, .role-badge.treasurer {
+    background-color: #e0f2fe;
+    color: #0284c7;
+    border-color: #bae6fd;
+}
+
+.order-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.action-pill-btn.edit {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-color: #bfdbfe;
+}
+
+.action-pill-btn.edit:hover {
+    background-color: #dbeafe;
+    border-color: #93c5fd;
+    color: #1d4ed8;
+    transform: translateY(-1px);
+}
+

@@ -1,0 +1,322 @@
+/* Navigation Container */
+.navbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar.text-dark {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-menu {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.navbar.text-dark .hamburger-menu {
+    color: #1a2a22;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-menu:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.navbar.text-dark .hamburger-menu:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.nav-center .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    height: 48px;
+    width: auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.logo-text-svss {
+    color: var(--color-white);
+}
+
+.navbar.text-dark .logo-text-svss {
+    color: #1a2a22;
+}
+
+.logo-text-bhopal {
+    color: var(--color-orange);
+}
+
+.take-action-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.navbar.text-dark .take-action-link {
+    color: #1a2a22;
+}
+
+.take-action-link:hover {
+    color: var(--color-orange);
+}
+
+.take-action-link:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.take-action-link svg {
+    transition: var(--transition-smooth);
+}
+
+/* Fullscreen Menu Overlay */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e4630;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: #fff;
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    overflow-y: auto;
+}
+
+.fullscreen-menu.open {
+    transform: translateY(0);
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-close-btn:hover {
+    transform: rotate(90deg);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.menu-content {
+    display: flex;
+    flex: 1;
+    padding: 4rem;
+    gap: 80px;
+}
+
+.menu-left-col {
+    flex: 1.5;
+    max-width: 600px;
+}
+
+.menu-right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.fullscreen-menu .accordion-menu {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.fullscreen-menu .accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.fullscreen-menu .accordion-header {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s;
+}
+
+.fullscreen-menu .accordion-header:hover {
+    color: var(--color-orange);
+}
+
+.fullscreen-menu .accordion-header.direct-link {
+    text-decoration: none;
+    display: flex;
+}
+
+.fullscreen-menu .accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.fullscreen-menu .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.3s;
+    opacity: 0;
+}
+
+.fullscreen-menu .accordion-content.open {
+    max-height: 400px;
+    padding-bottom: 24px;
+    opacity: 1;
+}
+
+.fullscreen-menu .accordion-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 1rem;
+}
+
+.fullscreen-menu .accordion-links li a {
+    color: #c2d6cc;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.fullscreen-menu .accordion-links li a:hover {
+    color: #ffffff;
+}
+
+.menu-contact-grid {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.menu-contact-item h4, .menu-social-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-contact-value {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu-contact-value:hover {
+    color: var(--color-orange);
+}
+
+.menu-social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-social-icons a {
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.menu-social-icons a:hover {
+    color: var(--color-orange);
+    transform: translateY(-2px);
+}
+
+.menu-social-icons svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 992px) {
+    .navbar { padding: 1.5rem 2rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-right { display: none; }
+    
+    .menu-header {
+        padding: 1.5rem 2rem;
+    }
+    .menu-content {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 40px;
+    }
+}

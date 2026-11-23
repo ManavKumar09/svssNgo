@@ -1,0 +1,15 @@
+/* ProjectsManager Specific Styles */
+@import '../Manager.css';
+
+/* Category Badge Styles */
+.badge-current {
+    background: rgba(240, 126, 19, 0.1);
+    color: #f07e13;
+    border: 1px solid rgba(240, 126, 19, 0.25);
+}
+
+.badge-completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}

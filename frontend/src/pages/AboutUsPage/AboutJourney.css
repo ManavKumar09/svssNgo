@@ -1,0 +1,88 @@
+.about-journey-section {
+    background-color: #F8F3E9;
+    padding: 0 5% 100px;
+}
+
+.about-journey-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.journey-subtitle {
+    color: #F58220;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.journey-title {
+    font-family: var(--font-primary, 'Playfair Display', serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #1A3626;
+    margin-bottom: 60px;
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-item {
+    display: flex;
+    min-height: 120px;
+}
+
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    background-color: #F58220;
+    border-radius: 50%;
+    z-index: 2;
+    margin-top: 8px;
+}
+
+.timeline-line {
+    width: 2px;
+    background-color: #D3CDC1;
+    flex-grow: 1;
+    margin-top: -8px;
+}
+
+.timeline-content {
+    padding-bottom: 40px;
+}
+
+.timeline-year {
+    font-family: var(--font-primary, 'Playfair Display', serif);
+    font-size: 2rem;
+    color: #2F543C; /* Muted Green */
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.timeline-text {
+    color: #556B5D;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .timeline-marker {
+        margin-right: 20px;
+    }
+    
+    .timeline-year {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,186 @@
+.milestones-preview-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.preview-timeline-container {
+    background: #f8f3e9;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #e5dfd1;
+}
+
+.preview-subtitle {
+    color: #f58220;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.preview-title {
+    font-family: serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a3626;
+    margin-bottom: 24px;
+}
+
+.preview-timeline-track {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(26, 54, 38, 0.2);
+}
+
+.preview-timeline-item {
+    position: relative;
+}
+
+.preview-dot {
+    position: absolute;
+    left: -26px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f58220;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px rgba(245, 130, 32, 0.4);
+}
+
+.preview-year {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a3626;
+    background: rgba(245, 130, 32, 0.12);
+    color: #c25e07;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.preview-text {
+    font-size: 0.88rem;
+    color: #556b5d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.add-milestone-box {
+    background: #f1f5f9;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    border: 1px solid #cbd5e1;
+}
+
+.milestones-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.milestone-item-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.milestone-item-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.milestone-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.milestone-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.milestone-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.milestone-year-pill {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 2px 10px;
+    border-radius: 12px;
+}
+
+.milestone-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.move-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    border-radius: 4px;
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.move-btn:hover:not(:disabled) {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.move-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.delete-milestone-btn {
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    border-radius: 4px;
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-milestone-btn:hover {
+    background: #fca5a5;
+    color: #991b1b;
+}

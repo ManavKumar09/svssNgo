@@ -1,0 +1,173 @@
+.project-category-page {
+    min-height: 100vh;
+    background-color: #fbf9f4;
+    color: #1a2a22;
+    padding-top: 120px;
+}
+
+.category-header {
+    text-align: center;
+    padding: 60px 5% 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.category-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: var(--font-serif);
+    color: #1a2a22;
+}
+
+.category-header p {
+    font-size: 1.2rem;
+    color: rgba(26, 42, 34, 0.8);
+    line-height: 1.6;
+}
+
+.project-list-container {
+    max-width: 1300px; /* Increased to make cards wider/longer */
+    margin: 0 auto;
+    padding: 0 5% 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* The Leaf Shape Card */
+.project-leaf-card {
+    background-color: #6a7153; /* Reverted to the exact olive green from reference */
+    border-radius: 100px 20px 100px 20px; /* Exact leaf shape from reference */
+    padding: 24px 40px 24px 24px; /* Asymmetric padding: less on left, more on right */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.project-leaf-image-container {
+    width: 45%;
+    max-width: 600px; /* Increased max-width to allow the image to scale up */
+    aspect-ratio: 16/10; /* Wider image rectangle to match reference */
+    border-radius: 80px 12px 12px 12px; /* Matches the top-left curve, rest sharp */
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.project-leaf-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-leaf-image-blank {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: inherit;
+}
+
+.project-leaf-card:hover .project-leaf-image {
+    transform: scale(1.05);
+}
+
+.project-leaf-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-leaf-content h2 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-family: var(--font-sans);
+}
+
+.project-stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.project-stats-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.project-stats-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    top: 0;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.btn-read-more {
+    display: inline-block;
+    background-color: #d8c2a3; /* Exact Beige/Tan from reference */
+    color: #1a2a22; /* Dark text */
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-read-more:hover {
+    background-color: #cab08e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 992px) {
+    .project-leaf-card {
+        flex-direction: column;
+        border-radius: 60px 24px 60px 24px;
+        padding: 24px;
+        gap: 30px;
+    }
+    
+    .project-leaf-image-container {
+        max-width: 100%;
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 40px 12px 12px 12px;
+    }
+    
+    .project-leaf-content {
+        padding-right: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .project-leaf-content h2 {
+        font-size: 2rem;
+    }
+}

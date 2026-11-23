@@ -1,0 +1,54 @@
+/* InquiriesManager Specific Styles */
+@import '../Manager.css';
+
+/* Inquiry modal details */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    color: #111827;
+    font-weight: 600;
+}
+
+.detail-value.link {
+    color: #f07e13;
+    text-decoration: none;
+}
+
+.detail-value.link:hover {
+    text-decoration: underline;
+}
+
+.detail-message-box {
+    margin-top: 10px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.detail-message-text {
+    margin: 8px 0 0 0;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}

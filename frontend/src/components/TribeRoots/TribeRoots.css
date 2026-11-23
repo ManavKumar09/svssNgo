@@ -1,0 +1,159 @@
+.tribe-roots-section {
+    background-color: #1e4630; /* Dark green background */
+    color: #ffffff;
+    padding: 100px 5%;
+    font-family: var(--font-sans);
+}
+
+.tribe-roots-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.tribe-roots-left {
+    flex: 1;
+    max-width: 500px;
+}
+
+.tribe-roots-subheading {
+    color: #e58238; /* Orange color */
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.tribe-roots-heading {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #fdfaf4; /* Off-white for heading */
+    margin-bottom: 30px;
+}
+
+.tribe-roots-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #d1dcd5; /* Light grey/green text for description */
+    margin-bottom: 40px;
+}
+
+.tribe-roots-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e9822a; /* Orange button */
+    color: #111111; /* Dark text on button */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tribe-roots-btn:hover {
+    background-color: #f09545;
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    margin-right: 10px;
+}
+
+.tribe-roots-right {
+    flex: 1;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.image-label {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+/* Add a subtle gradient overlay to bottom of images with labels */
+.grid-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.grid-item:has(.image-label)::after {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .tribe-roots-container {
+        flex-direction: column;
+    }
+
+    .tribe-roots-left {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .tribe-roots-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .tribe-roots-heading {
+        font-size: 3rem;
+    }
+    
+    .image-grid {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Stack images on very small screens */
+    }
+}
