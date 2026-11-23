@@ -164,12 +164,13 @@ const FieldsOfWork = () => {
                                     </div>
                                     <div className="field-card-image-wrapper">
                                         <img 
-                                            src={field.image} 
+                                            src={field.image || defaultThemeInfo[field.id]?.image || defaultCategoryImg} 
                                             alt={field.title} 
                                             className="field-card-image" 
                                             onError={(e) => {
                                                 e.target.onerror = null;
-                                                e.target.src = defaultCategoryImg;
+                                                const fallback = defaultThemeInfo[field.id]?.image || defaultCategoryImg;
+                                                e.target.src = fallback;
                                             }}
                                         />
                                     </div>

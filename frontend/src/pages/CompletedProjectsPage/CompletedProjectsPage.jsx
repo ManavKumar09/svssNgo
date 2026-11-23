@@ -4,23 +4,31 @@ import './CompletedProjectsPage.css';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
 import defaultCategoryImg from '../../assets/photos/aboutusgallery.JPG';
+import agriLivelihoodImg from '../../assets/photos/IntegratedFarming/IntegratedFarming1.png';
+import healthSanitationImg from '../../assets/photos/NationalHealth/NationalHealth1.png';
+import envClimateImg from '../../assets/photos/ClimateChange/ClimateChange3.png';
+import communityCategoryImg from '../../assets/photos/childline/childline2.png';
 
 const defaultThemeInfo = {
     'agriculture-livelihood': {
         title: 'Agriculture & Livelihoods',
-        badge: 'Farming & Income'
+        badge: 'Farming & Income',
+        image: agriLivelihoodImg
     },
     'health-sanitation': {
         title: 'Health & Sanitation',
-        badge: 'Public Health'
+        badge: 'Public Health',
+        image: healthSanitationImg
     },
     'environment-climate': {
         title: 'Environment & Climate',
-        badge: 'Conservation'
+        badge: 'Conservation',
+        image: envClimateImg
     },
     'community-empowerment': {
         title: 'Community Empowerment',
-        badge: 'Empowerment'
+        badge: 'Empowerment',
+        image: communityCategoryImg
     }
 };
 
@@ -105,12 +113,13 @@ const CompletedProjectsPage = () => {
                             <Link to={category.link} key={category.id} className="category-card">
                                 <div className="category-image-wrapper">
                                     <img 
-                                        src={category.image} 
+                                        src={category.image || defaultThemeInfo[category.id]?.image || defaultCategoryImg} 
                                         alt={category.title} 
                                         className="category-image" 
                                         onError={(e) => {
                                             e.target.onerror = null;
-                                            e.target.src = defaultCategoryImg;
+                                            const fallback = defaultThemeInfo[category.id]?.image || defaultCategoryImg;
+                                            e.target.src = fallback;
                                         }}
                                     />
                                     <div className="category-overlay">
