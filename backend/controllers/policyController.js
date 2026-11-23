@@ -21,7 +21,7 @@ const createPolicy = async (req, res) => {
         let document = '';
 
         if (req.file) {
-            document = `/uploads/${req.file.filename}`;
+            document = req.file.path || `/uploads/${req.file.filename}`;
         }
 
         const policy = new Policy({
@@ -52,7 +52,7 @@ const updatePolicy = async (req, res) => {
             policy.category = category || policy.category;
 
             if (req.file) {
-                policy.document = `/uploads/${req.file.filename}`;
+                policy.document = req.file.path || `/uploads/${req.file.filename}`;
             }
 
             const updatedPolicy = await policy.save();

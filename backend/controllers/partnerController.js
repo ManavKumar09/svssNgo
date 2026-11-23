@@ -50,7 +50,7 @@ const createPartner = async (req, res) => {
 
         let logoPath = '';
         if (req.file) {
-            logoPath = `/uploads/${req.file.filename}`;
+            logoPath = req.file.path || `/uploads/${req.file.filename}`;
         } else if (req.body.logo) {
             logoPath = req.body.logo;
         } else {
@@ -102,7 +102,7 @@ const updatePartner = async (req, res) => {
                     }
                 }
             }
-            partner.logo = `/uploads/${req.file.filename}`;
+            partner.logo = req.file.path || `/uploads/${req.file.filename}`;
         }
 
         const updatedPartner = await partner.save();

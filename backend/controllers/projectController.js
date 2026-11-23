@@ -39,10 +39,10 @@ const createProject = async (req, res) => {
 
         if (req.files) {
             if (req.files['headerImage'] && req.files['headerImage'].length > 0) {
-                headerImage = `/uploads/${req.files['headerImage'][0].filename}`;
+                headerImage = req.files['headerImage'][0].path || `/uploads/${req.files['headerImage'][0].filename}`;
             }
             if (req.files['images'] && req.files['images'].length > 0) {
-                images = req.files['images'].map(file => `/uploads/${file.filename}`);
+                images = req.files['images'].map(file => file.path || `/uploads/${file.filename}`);
             }
         }
 
@@ -88,7 +88,7 @@ const updateProject = async (req, res) => {
             }
 
             if (req.files && req.files['headerImage'] && req.files['headerImage'].length > 0) {
-                project.headerImage = `/uploads/${req.files['headerImage'][0].filename}`;
+                project.headerImage = req.files['headerImage'][0].path || `/uploads/${req.files['headerImage'][0].filename}`;
             } else if (req.body.headerImage !== undefined) {
                 project.headerImage = req.body.headerImage;
             }
@@ -103,7 +103,7 @@ const updateProject = async (req, res) => {
             }
 
             if (req.files && req.files['images'] && req.files['images'].length > 0) {
-                const newImages = req.files['images'].map(file => `/uploads/${file.filename}`);
+                const newImages = req.files['images'].map(file => file.path || `/uploads/${file.filename}`);
                 project.images = [...retainedImages, ...newImages];
             } else if (req.body.existingImages !== undefined) {
                 project.images = retainedImages;

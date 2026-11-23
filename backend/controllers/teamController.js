@@ -44,7 +44,7 @@ const createTeamMember = async (req, res) => {
         let image = req.body.image || '';
 
         if (req.file) {
-            image = `/uploads/${req.file.filename}`;
+            image = req.file.path || `/uploads/${req.file.filename}`;
         }
 
         if (!name || !role) {
@@ -93,7 +93,7 @@ const updateTeamMember = async (req, res) => {
                     fs.unlinkSync(oldPath);
                 }
             }
-            member.image = `/uploads/${req.file.filename}`;
+            member.image = req.file.path || `/uploads/${req.file.filename}`;
         } else if (req.body.image !== undefined) {
             member.image = req.body.image;
         }

@@ -32,7 +32,7 @@ const DocumentsPage = () => {
         return (
             <div className="document-links-grid">
                 {filteredDocs.map(doc => {
-                    const fileUrl = doc.document ? `https://svssngo.onrender.com${doc.document}` : '#';
+                    const fileUrl = doc.document ? (doc.document.startsWith('http') ? doc.document : `https://svssngo.onrender.com${doc.document}`) : '#';
                     const isWordDoc = fileUrl.endsWith('.doc') || fileUrl.endsWith('.docx');
                     
                     return (
