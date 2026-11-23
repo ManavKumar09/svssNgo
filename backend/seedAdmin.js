@@ -9,8 +9,13 @@ const seedAdmin = async () => {
         await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB Connected...');
 
-        const targetEmail = 'svssngo@hotmail.com';
-        const targetPassword = '123456789';
+        const targetEmail = process.env.ADMIN_EMAIL || process.env.ADMIN_USERNAME || 'svssngo@hotmail.com';
+        const targetPassword = process.env.ADMIN_PASSWORD;
+
+        if (!targetPassword) {
+            console.error('Please specify ADMIN_PASSWORD in environment variables (.env).');
+            process.exit(1);
+        }
 
         let user = await User.findOne({ email: targetEmail });
 
