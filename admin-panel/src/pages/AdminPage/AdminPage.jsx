@@ -14,6 +14,21 @@ import HeroManager from '../../components/HeroManager/HeroManager';
 import ActivitiesManager from '../../components/ActivitiesManager/ActivitiesManager';
 import MilestonesManager from '../../components/MilestonesManager/MilestonesManager';
 
+const MenuIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+);
+
+const CloseIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+);
+
 const ActivityIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 3v18h18"></path>
@@ -130,6 +145,7 @@ const AdminPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [currentAdminUser, setCurrentAdminUser] = useState(localStorage.getItem('adminUsername') || 'svssngo@hotmail.com');
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     const [error, setError] = useState('');
 
     const isSettingsTab = location.pathname.includes('/settings');
@@ -266,99 +282,105 @@ const AdminPage = () => {
     }
 
     return (
-        <div className="admin-dashboard">
+        <div className={`admin-dashboard ${sidebarOpen ? 'sidebar-open' : ''}`}>
+            {/* Mobile backdrop */}
+            {sidebarOpen && <div className="admin-sidebar-backdrop" onClick={() => setSidebarOpen(false)}></div>}
+
             {/* Sidebar */}
-            <aside className="admin-sidebar">
+            <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="admin-sidebar-header">
                     <div className="admin-logo">
                         <img src="/SVSSlogo.jpeg" alt="SVSS Logo" className="admin-logo-img" />
                         <span className="logo-svss">SVSS</span>
                         <span className="logo-tag">Admin</span>
                     </div>
+                    <button className="admin-sidebar-close-btn" onClick={() => setSidebarOpen(false)} aria-label="Close menu">
+                        <CloseIcon />
+                    </button>
                 </div>
 
                 <div className="admin-nav-section-title">Navigation</div>
                 <nav className="admin-nav">
                     <button 
                         className={`admin-nav-btn ${activeTab === 'projects' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/projects')}
+                        onClick={() => { navigate('/admin/projects'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><ProjectsIcon /></span>
                         Manage Projects
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'hero' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/hero')}
+                        onClick={() => { navigate('/admin/hero'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><HeroIcon /></span>
                         Home Banner &amp; Slides
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'milestones' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/milestones')}
+                        onClick={() => { navigate('/admin/milestones'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><MilestonesIcon /></span>
                         About Milestones
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'activities' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/activities')}
+                        onClick={() => { navigate('/admin/activities'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><ActivityIcon /></span>
                         Beneficiaries Graph
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'policies' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/documents')}
+                        onClick={() => { navigate('/admin/documents'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><DocumentsIcon /></span>
                         Manage Documents
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'gallery' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/gallery')}
+                        onClick={() => { navigate('/admin/gallery'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><GalleryIcon /></span>
                         Manage Gallery
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'partners' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/partners')}
+                        onClick={() => { navigate('/admin/partners'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><PartnersIcon /></span>
                         Partners &amp; Donors
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'team' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/team')}
+                        onClick={() => { navigate('/admin/team'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><TeamIcon /></span>
                         Team &amp; Board
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'stats' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/stats')}
+                        onClick={() => { navigate('/admin/stats'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><StatsIcon /></span>
                         Impact Stats
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'voices' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/voices')}
+                        onClick={() => { navigate('/admin/voices'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><VoicesIcon /></span>
                         Voices &amp; Stories
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'inquiries' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/inquiries')}
+                        onClick={() => { navigate('/admin/inquiries'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><MailIcon /></span>
                         Inquiries &amp; Forms
                     </button>
                     <button 
                         className={`admin-nav-btn ${activeTab === 'settings' ? 'active' : ''}`}
-                        onClick={() => navigate('/admin/settings')}
+                        onClick={() => { navigate('/admin/settings'); setSidebarOpen(false); }}
                     >
                         <span className="nav-icon"><SettingsIcon /></span>
                         General Settings &amp; Security
@@ -388,7 +410,10 @@ const AdminPage = () => {
             <div className="admin-main-wrapper">
                 <header className="admin-topbar">
                     <div className="admin-topbar-left">
-                        <h1 className="admin-topbar-title">SVSS Admin Dashboard</h1>
+                        <button className="admin-hamburger-btn" onClick={() => setSidebarOpen(true)} aria-label="Open navigation menu">
+                            <MenuIcon />
+                        </button>
+                        <h1 className="admin-topbar-title">SVSS Admin</h1>
                     </div>
                     <div className="admin-topbar-right">
                         <button onClick={handleLogout} className="admin-logout-pill-btn">
