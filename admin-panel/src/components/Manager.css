@@ -760,25 +760,48 @@
         border-right: none;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        display: block;
+        width: calc(100% + 24px);
     }
 
     .admin-table {
-        min-width: 600px;
+        min-width: 650px;
+        width: 100%;
     }
 
     .admin-table th,
     .admin-table td {
-        padding: 12px 14px;
+        padding: 10px 12px;
         font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .admin-table td.table-title-cell,
+    .admin-table td.truncate-text {
+        white-space: normal;
+        min-width: 180px;
+        max-width: 250px;
     }
 
     .table-actions-cell {
         gap: 6px;
+        flex-wrap: nowrap;
     }
 
     .action-pill-btn {
-        padding: 5px 12px;
+        padding: 5px 10px;
         font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .form-actions-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-actions-bar button {
+        width: 100%;
+        text-align: center;
     }
 }
 

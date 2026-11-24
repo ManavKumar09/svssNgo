@@ -99,3 +99,38 @@
     line-height: 1.4;
     margin: 0;
 }
+
+@media (max-width: 768px) {
+    .settings-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        gap: 6px;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .settings-tab-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .settings-card {
+        padding: 20px 16px;
+        border-radius: 10px;
+    }
+
+    .settings-section-heading {
+        font-size: 1.05rem;
+    }
+
+    .settings-section-description {
+        font-size: 12.5px;
+        margin-bottom: 18px;
+    }
+
+    .settings-password-box {
+        padding: 12px 14px;
+    }
+}
